@@ -1,0 +1,19 @@
+
+
+Implementation tool: Xilinx Vivado v.2017.2
+Project:             converter
+Solution:            solution1
+Device target:       xc7z100ffg900-1
+Report date:         Thu Apr 25 02:35:13 UTC 2019
+
+#=== Post-Synthesis Resource usage ===
+SLICE:            0
+LUT:            280
+FF:             275
+DSP:              3
+BRAM:             0
+SRL:              1
+#=== Final timing ===
+CP required:    10.000
+CP achieved post-synthesis:    4.651
+Timing met

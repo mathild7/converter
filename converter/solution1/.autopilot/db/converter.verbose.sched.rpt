@@ -1,0 +1,293 @@
+
+
+================================================================
+== Vivado HLS Report for 'converter'
+================================================================
+* Date:           Thu Apr 25 02:32:04 2019
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        converter
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z100ffg900-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.02|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    7|    7|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 8
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 8
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 8, States = { 1 2 3 4 5 6 7 8 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: tmp (10)  [2/2] 0.00ns  loc: converter.cpp:20
+codeRepl:7  %tmp = call float @_ssdm_op_Read.axis.volatile.floatP(float* %in_V)
+
+
+ <State 2>: 5.70ns
+ST_2: tmp (10)  [1/2] 0.00ns  loc: converter.cpp:20
+codeRepl:7  %tmp = call float @_ssdm_op_Read.axis.volatile.floatP(float* %in_V)
+
+ST_2: val_assign (11)  [4/4] 5.70ns  loc: converter.cpp:23
+codeRepl:8  %val_assign = fmul float %tmp, 8.388607e+06
+
+
+ <State 3>: 5.70ns
+ST_3: val_assign (11)  [3/4] 5.70ns  loc: converter.cpp:23
+codeRepl:8  %val_assign = fmul float %tmp, 8.388607e+06
+
+
+ <State 4>: 5.70ns
+ST_4: val_assign (11)  [2/4] 5.70ns  loc: converter.cpp:23
+codeRepl:8  %val_assign = fmul float %tmp, 8.388607e+06
+
+
+ <State 5>: 8.02ns
+ST_5: val_assign (11)  [1/4] 5.70ns  loc: converter.cpp:23
+codeRepl:8  %val_assign = fmul float %tmp, 8.388607e+06
+
+ST_5: p_Val2_s (12)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:311->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:320->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:436->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:9  %p_Val2_s = bitcast float %val_assign to i32
+
+ST_5: p_Result_s (13)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:317->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:320->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:436->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:10  %p_Result_s = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %p_Val2_s, i32 31)
+
+ST_5: loc_V (14)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:318->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:320->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:436->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:11  %loc_V = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_Val2_s, i32 23, i32 30) nounwind
+
+ST_5: loc_V_1 (15)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:319->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:320->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:436->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:12  %loc_V_1 = trunc i32 %p_Val2_s to i23
+
+ST_5: tmp_i_i_i_i_cast1 (18)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:340->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:15  %tmp_i_i_i_i_cast1 = zext i8 %loc_V to i9
+
+ST_5: sh_assign (19)  [1/1] 2.32ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:340->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:16  %sh_assign = add i9 -127, %tmp_i_i_i_i_cast1
+
+ST_5: isNeg (20)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:17  %isNeg = call i1 @_ssdm_op_BitSelect.i1.i9.i32(i9 %sh_assign, i32 8)
+
+ST_5: tmp_5_i_i_i (21)  [1/1] 2.32ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:18  %tmp_5_i_i_i = sub i8 127, %loc_V
+
+
+ <State 6>: 6.49ns
+ST_6: tmp_3_i_i_i (16)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:438->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:13  %tmp_3_i_i_i = call i25 @_ssdm_op_BitConcatenate.i25.i1.i23.i1(i1 true, i23 %loc_V_1, i1 false)
+
+ST_6: tmp_3_i_i_i_cast2 (17)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:438->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (grouped into LUT with out node tmp_6)
+codeRepl:14  %tmp_3_i_i_i_cast2 = zext i25 %tmp_3_i_i_i to i79
+
+ST_6: tmp_5_i_i_i_cast (22)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:19  %tmp_5_i_i_i_cast = sext i8 %tmp_5_i_i_i to i9
+
+ST_6: sh_assign_1 (23)  [1/1] 2.07ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:20  %sh_assign_1 = select i1 %isNeg, i9 %tmp_5_i_i_i_cast, i9 %sh_assign
+
+ST_6: sh_assign_1_cast (24)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (grouped into LUT with out node tmp_6)
+codeRepl:21  %sh_assign_1_cast = sext i9 %sh_assign_1 to i32
+
+ST_6: sh_assign_1_cast_cas (25)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (grouped into LUT with out node tmp_6)
+codeRepl:22  %sh_assign_1_cast_cas = sext i9 %sh_assign_1 to i25
+
+ST_6: tmp_7_i_i_i (26)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (grouped into LUT with out node tmp_6)
+codeRepl:23  %tmp_7_i_i_i = zext i32 %sh_assign_1_cast to i79
+
+ST_6: tmp_8_i_i_i (27)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (grouped into LUT with out node tmp_6)
+codeRepl:24  %tmp_8_i_i_i = lshr i25 %tmp_3_i_i_i, %sh_assign_1_cast_cas
+
+ST_6: tmp_i_i_i (28)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (grouped into LUT with out node tmp_6)
+codeRepl:25  %tmp_i_i_i = shl i79 %tmp_3_i_i_i_cast2, %tmp_7_i_i_i
+
+ST_6: tmp_8 (29)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:473->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (grouped into LUT with out node tmp_6)
+codeRepl:26  %tmp_8 = call i1 @_ssdm_op_BitSelect.i1.i25.i32(i25 %tmp_8_i_i_i, i32 24)
+
+ST_6: tmp_4 (30)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:473->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (grouped into LUT with out node tmp_6)
+codeRepl:27  %tmp_4 = zext i1 %tmp_8 to i24
+
+ST_6: tmp_5 (31)  [1/1] 0.00ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:473->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (grouped into LUT with out node tmp_6)
+codeRepl:28  %tmp_5 = call i24 @_ssdm_op_PartSelect.i24.i79.i32.i32(i79 %tmp_i_i_i, i32 24, i32 47)
+
+ST_6: tmp_6 (32)  [1/1] 4.42ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23 (out node of the LUT)
+codeRepl:29  %tmp_6 = select i1 %isNeg, i24 %tmp_4, i24 %tmp_5
+
+
+ <State 7>: 4.67ns
+ST_7: tmp_3 (33)  [1/1] 2.60ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:473->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:30  %tmp_3 = sub i24 0, %tmp_6
+
+ST_7: converted_V (34)  [1/1] 2.07ns  loc: /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:473->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23
+codeRepl:31  %converted_V = select i1 %p_Result_s, i24 %tmp_3, i24 %tmp_6
+
+ST_7: tmp1 (35)  [1/1] 0.00ns  loc: converter.cpp:30
+codeRepl:32  %tmp1 = call i32 @_ssdm_op_BitConcatenate.i32.i24.i8(i24 %converted_V, i8 0)
+
+ST_7: StgValue_39 (36)  [2/2] 0.00ns  loc: converter.cpp:30
+codeRepl:33  call void @_ssdm_op_Write.axis.volatile.i32P(i32* %out_V, i32 %tmp1)
+
+
+ <State 8>: 0.00ns
+ST_8: StgValue_40 (3)  [1/1] 0.00ns
+codeRepl:0  call void (...)* @_ssdm_op_SpecBitsMap(i32* %out_V), !map !477
+
+ST_8: StgValue_41 (4)  [1/1] 0.00ns
+codeRepl:1  call void (...)* @_ssdm_op_SpecBitsMap(float* %in_V), !map !486
+
+ST_8: StgValue_42 (5)  [1/1] 0.00ns
+codeRepl:2  call void (...)* @_ssdm_op_SpecTopModule([10 x i8]* @converter_str) nounwind
+
+ST_8: StgValue_43 (6)  [1/1] 0.00ns  loc: converter.cpp:12
+codeRepl:3  call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind
+
+ST_8: StgValue_44 (7)  [1/1] 0.00ns
+codeRepl:4  call void (...)* @_ssdm_op_SpecInterface(i32* %out_V, [5 x i8]* @p_str1, i32 1, i32 1, [5 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+
+ST_8: StgValue_45 (8)  [1/1] 0.00ns  loc: converter.cpp:15
+codeRepl:5  call void (...)* @_ssdm_op_SpecInterface(float* %in_V, [5 x i8]* @p_str1, i32 1, i32 1, [5 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+
+ST_8: StgValue_46 (9)  [1/1] 0.00ns  loc: converter.cpp:16
+codeRepl:6  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+
+ST_8: StgValue_47 (36)  [1/2] 0.00ns  loc: converter.cpp:30
+codeRepl:33  call void @_ssdm_op_Write.axis.volatile.i32P(i32* %out_V, i32 %tmp1)
+
+ST_8: StgValue_48 (37)  [1/1] 0.00ns  loc: converter.cpp:31
+codeRepl:34  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 5.7ns
+The critical path consists of the following:
+	axis read on port 'in_V' (converter.cpp:20) [10]  (0 ns)
+	'fmul' operation ('val', converter.cpp:23) [11]  (5.7 ns)
+
+ <State 3>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('val', converter.cpp:23) [11]  (5.7 ns)
+
+ <State 4>: 5.7ns
+The critical path consists of the following:
+	'fmul' operation ('val', converter.cpp:23) [11]  (5.7 ns)
+
+ <State 5>: 8.02ns
+The critical path consists of the following:
+	'fmul' operation ('val', converter.cpp:23) [11]  (5.7 ns)
+	'add' operation ('sh', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/utils/x_hls_utils.h:340->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23) [19]  (2.32 ns)
+
+ <State 6>: 6.49ns
+The critical path consists of the following:
+	'select' operation ('sh', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23) [23]  (2.07 ns)
+	'lshr' operation ('tmp_8_i_i_i', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23) [27]  (0 ns)
+	'select' operation ('tmp_6', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:441->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23) [32]  (4.42 ns)
+
+ <State 7>: 4.67ns
+The critical path consists of the following:
+	'sub' operation ('tmp_3', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:473->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23) [33]  (2.6 ns)
+	'select' operation ('converted.V', /wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:473->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/hls/hls_round.h:523->/wrk/2017.2/nightly/2017_06_15_1909853/src/products/hls/hls_lib/src/lib_floatconversion.cpp:43->converter.cpp:23) [34]  (2.07 ns)
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

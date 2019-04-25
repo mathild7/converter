@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="converter.cpp" path="/home/hildeb47/proj/ECE1373_GhostSynth/mods/converter/converter.cpp"/>
+    <originFiles name="converter.h" path="/home/hildeb47/proj/ECE1373_GhostSynth/mods/converter/converter.h"/>
+  </source>
+  <testbench>
+    <originFiles name="converter_test.cpp" path="/home/hildeb47/proj/ECE1373_GhostSynth/mods/converter/converter_test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

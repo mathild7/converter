@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="converter" xd:componentRef="converter" xd:initiationInterval="1" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="in" xd:originalName="in" xd:direction="in" xd:interfaceRef="in_V" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="out.padding" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_V" xd:busTypeRef="axis" xd:dataPack="true" xd:bitMapping="7:0" xd:dataWidth="8"/>
+  <xd:arg xd:name="out.data" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_V" xd:busTypeRef="axis" xd:dataPack="true" xd:bitMapping="31:8" xd:dataWidth="24"/>
+  <xd:latencyEstimates xd:best-case="7" xd:worst-case="7" xd:average-case="7"/>
+  <xd:resourceEstimates xd:LUT="832" xd:FF="770" xd:BRAM="0" xd:DSP="3"/>
+</xd:acceleratorMap>
